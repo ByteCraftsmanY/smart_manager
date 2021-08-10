@@ -1,0 +1,67 @@
+import 'package:flutter/material.dart';
+
+import 'package:smart_manager/app/core/theme/text_theme.dart';
+import 'package:smart_manager/app/core/values/colors.dart';
+import 'package:smart_manager/app/data/model/to_do_model.dart';
+
+class ToDoTile extends StatelessWidget {
+  final ToDoModel model;
+  const ToDoTile({
+    Key? key,
+    required this.model,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 140,
+      width: 130,
+      margin: EdgeInsets.fromLTRB(10, 10, 0, 10),
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: kToDoTileColor,
+      ),
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            model.catagery,
+            style: kToDotileTextStyle,
+          ),
+          SizedBox(
+            height: 1,
+          ),
+          Text(
+            model.title,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 18,
+            ),
+          ),
+          SizedBox(
+            height: 1,
+          ),
+          Row(
+            children: [
+              Icon(
+                Icons.brightness_1,
+                color: kDotColor,
+                size: 10,
+              ),
+              SizedBox(
+                width: 3,
+              ),
+              Text(
+                model.date,
+                style: kToDotileTextStyle,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
