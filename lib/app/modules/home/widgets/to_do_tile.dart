@@ -34,11 +34,16 @@ class ToDoTile extends StatelessWidget {
           SizedBox(
             height: 1,
           ),
-          Text(
-            model.title,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 18,
+          Flexible(
+            child: Container(
+              child: Text(
+                model.title,
+                overflow: TextOverflow.visible,
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18,
+                ),
+              ),
             ),
           ),
           SizedBox(
@@ -54,9 +59,14 @@ class ToDoTile extends StatelessWidget {
               SizedBox(
                 width: 3,
               ),
-              Text(
-                model.date,
-                style: kToDotileTextStyle,
+              Flexible(
+                child: Container(
+                  child: Text(
+                    model.date,
+                    style: kToDotileTextStyle,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ),
             ],
           ),

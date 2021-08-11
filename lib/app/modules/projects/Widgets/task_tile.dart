@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_manager/app/core/theme/text_theme.dart';
+import 'package:smart_manager/app/core/values/colors.dart';
 
 class TaskTile extends StatelessWidget {
   const TaskTile({
@@ -9,31 +11,68 @@ class TaskTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(15, 0, 15, 20),
+      margin: EdgeInsets.fromLTRB(15, 10, 5, 20),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       decoration: BoxDecoration(
-        color: Colors.yellow,
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, 0),
+          )
+        ],
         borderRadius: BorderRadius.circular(20),
+        // border: Border.all(),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
         children: [
-          Text(
-            "approv add banner",
-            style: kBigTextStyle,
-          ),
-          Row(
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
-                Icons.calendar_today,
-                color: Colors.grey,
+              Text(
+                "approv add banner ",
+                style: kBigTextStyle,
               ),
               SizedBox(
-                width: 10,
+                height: 5,
               ),
-              Spacer(),
-              Icon(Icons.youtube_searched_for),
+              Row(
+                children: [
+                  Icon(
+                    CupertinoIcons.calendar_today,
+                    color: Colors.grey,
+                    size: 20,
+                  ),
+                  SizedBox(width: 5),
+                  Text(
+                    "till 21 may 2021",
+                    style: kToDotileTextStyle,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ],
+          ),
+          Spacer(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Icon(
+                Icons.brightness_1,
+                color: kDotColor,
+                size: 10,
+              ),
+              SizedBox(
+                height: 2,
+              ),
+              Icon(
+                Icons.supervised_user_circle,
+                color: Colors.black,
+              ),
+            ],
+          ),
+          SizedBox(
+            width: 10,
           ),
         ],
       ),

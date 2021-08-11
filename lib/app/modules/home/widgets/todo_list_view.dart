@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:smart_manager/app/data/model/to_do_model.dart';
 import 'package:smart_manager/app/modules/home/widgets/to_do_tile.dart';
 
@@ -21,26 +22,15 @@ class ToDoListView extends StatelessWidget {
         ),
       ),
       options: CarouselOptions(
-        viewportFraction: 0.33,
+        viewportFraction: Get.width / 1200,
         aspectRatio: 1,
         autoPlayCurve: Curves.fastOutSlowIn,
         autoPlay: true,
-        // autoPlayInterval: Duration(seconds: 10),
+        autoPlayInterval: Duration(seconds: 10),
+        pageSnapping: false,
         autoPlayAnimationDuration: Duration(seconds: 5),
       ),
     );
-    // return ListView.builder(
-    //   physics: BouncingScrollPhysics(),
-    //   scrollDirection: Axis.horizontal,
-    //   itemCount: 40,
-    //   itemBuilder: (context, i) => ToDoTile(
-    //     model: ToDoModel(
-    //       catagery: "Internal",
-    //       title: "Create New Page",
-    //       date: " till 10 May 2021",
-    //       description: "hi",
-    //     ),
-    //   ),
-    // );
+    
   }
 }

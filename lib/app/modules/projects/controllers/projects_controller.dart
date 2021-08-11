@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class ProjectsController extends GetxController {
+  ScrollController scrollController = ScrollController();
+  RxBool isShowFAB = true.obs;
   @override
   void onInit() {
     super.onInit();
@@ -12,5 +15,7 @@ class ProjectsController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    scrollController.dispose();
+  }
 }

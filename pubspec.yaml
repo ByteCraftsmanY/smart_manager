@@ -12,6 +12,8 @@ dependencies:
   percent_indicator: 3.0.1
   animations: 2.0.1
   carousel_slider: 4.0.0
+  lottie: 1.1.0
+  floating_bottom_navigation_bar: 1.5.2
   flutter: 
     sdk: flutter
 
@@ -21,5 +23,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter: 
+  assets: 
+    - assets/animations/
   uses-material-design: true
 
