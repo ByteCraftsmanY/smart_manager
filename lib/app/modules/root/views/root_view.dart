@@ -1,13 +1,12 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
+import 'package:animations/animations.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'package:smart_manager/app/core/values/colors.dart';
-import 'package:smart_manager/app/modules/root/scroll_to_hide.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
-import 'package:smart_manager/app/routes/app_pages.dart';
+import 'package:smart_manager/app/core/values/colors.dart';
+import 'package:smart_manager/app/modules/root/widgets/scroll_to_hide.dart';
 
 import '../controllers/root_controller.dart';
 
@@ -23,7 +22,8 @@ class RootView extends GetView<RootController> {
                 child: child,
               );
             },
-            child: controller.tabs[controller.selectedIndex.value],
+            child: RootController.tabs[controller.selectedIndex.value],
+            // child: controller.tabs[controller.selectedIndex.value],
           )),
       bottomNavigationBar: Obx(
         () => ScrollToHide(
@@ -37,8 +37,6 @@ class RootView extends GetView<RootController> {
               selectedItemColor: kBottamBarIconColor,
               elevation: 0,
               borderRadius: 20,
-
-              // margin: EdgeInsets.all(20),
               padding: EdgeInsets.symmetric(vertical: 10),
               items: [
                 FloatingNavbarItem(
@@ -48,7 +46,10 @@ class RootView extends GetView<RootController> {
                   icon: Icons.insert_drive_file_rounded,
                 ),
                 FloatingNavbarItem(
-                  icon: Icons.alarm,
+                  icon: FontAwesomeIcons.solidStickyNote,
+                ),
+                FloatingNavbarItem(
+                  icon: Icons.payment,
                 ),
                 FloatingNavbarItem(
                   icon: Icons.person_sharp,
@@ -61,35 +62,5 @@ class RootView extends GetView<RootController> {
         ),
       ),
     );
-  }
-
-  List<Widget> get _widgets {
-    return [
-      Expanded(
-        flex: 3,
-        child: LottieBuilder.asset(
-            "assets/animations/41068-man-filling-a-list.json"),
-      ),
-      Expanded(
-          flex: 1,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              MaterialButton(
-                onPressed: () {
-                  Get.toNamed(Routes.HOME);
-                },
-                child: Text("Home View"),
-              ),
-              MaterialButton(
-                onPressed: () {
-                  Get.toNamed(Routes.PROJECTS);
-                },
-                child: Text("Project View"),
-              )
-            ],
-          ))
-    ];
   }
 }

@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
 import 'package:get/get.dart';
+
 import 'package:smart_manager/app/modules/home/views/home_view.dart';
-import 'package:smart_manager/app/modules/projects/views/project_details_view.dart';
+import 'package:smart_manager/app/modules/notes/views/notes_view.dart';
+import 'package:smart_manager/app/modules/profile/views/profile_view.dart';
 import 'package:smart_manager/app/modules/projects/views/projects_view.dart';
+import 'package:smart_manager/app/modules/transactions/views/transactions_view.dart';
 
 class RootController extends GetxController {
   RxInt selectedIndex = 0.obs;
   RxBool isVisibleNavigationBar = true.obs;
-  List<Widget> tabs = [
+  static List<Widget> tabs = [
     HomeView(),
     ProjectsView(),
-    ProjectDetailsView(),
+    NotesView(),
+    TransactionsView(),
+    ProfileView(),
   ];
   late ScrollController _scrollController;
   get getNavigationScrollController => _scrollController;

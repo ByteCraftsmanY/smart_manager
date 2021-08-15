@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import 'package:smart_manager/app/modules/projects/controllers/project_details_controller.dart';
 
 import '../controllers/projects_controller.dart';

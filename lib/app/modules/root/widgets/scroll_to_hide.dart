@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
+
 import 'package:smart_manager/app/modules/root/controllers/root_controller.dart';
 
 class ScrollToHide extends StatelessWidget {

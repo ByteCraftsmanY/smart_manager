@@ -15,42 +15,40 @@ class ProjectsView extends GetView<ProjectsController> {
   final controller = Get.put(ProjectsController());
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        controller: Get.find<RootController>().getNavigationScrollController,
-        physics: BouncingScrollPhysics(),
-        slivers: [
-          SliverAppBar(
-            backgroundColor: kCanvasColor,
-            floating: true,
-            title: Text(
-              "Projects",
-              style: kAppBarTextStyle,
-            ),
-            actions: [
-              Padding(
-                padding: kAppBarIconPadding,
-                child: Icon(Icons.search, color: Colors.black),
-              ),
-            ],
+    return CustomScrollView(
+      controller: Get.find<RootController>().getNavigationScrollController,
+      physics: BouncingScrollPhysics(),
+      slivers: [
+        SliverAppBar(
+          backgroundColor: kCanvasColor,
+          floating: true,
+          title: Text(
+            "Projects",
+            style: kAppBarTextStyle,
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, i) => ProjectTile(
-                modal: TaskModel(
-                    catagery: "SuperApp",
-                    date: "",
-                    description: "",
-                    title: "Superapp",
-                    total: 10,
-                    completed: 5),
-                callback: () => Get.to(() => ProjectDetailsView()),
-              ),
-              childCount: 10,
+          actions: [
+            Padding(
+              padding: kAppBarIconPadding,
+              child: Icon(Icons.search, color: Colors.black),
             ),
+          ],
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, i) => ProjectTile(
+              modal: TaskModel(
+                  catagery: "SuperApp",
+                  date: "",
+                  description: "",
+                  title: "Superapp",
+                  total: 10,
+                  completed: 5),
+              callback: () => Get.to(() => ProjectDetailsView()),
+            ),
+            childCount: 10,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
