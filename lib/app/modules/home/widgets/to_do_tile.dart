@@ -13,64 +13,69 @@ class ToDoTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 140,
-      width: 130,
-      margin: EdgeInsets.fromLTRB(10, 10, 0, 10),
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+      child: InkWell(
+        onTap: () {},
         borderRadius: BorderRadius.circular(20),
-        color: kToDoTileColor,
-      ),
-      alignment: Alignment.center,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            model.catagery,
-            style: kToDotileTextStyle,
+        child: Ink(
+          height: 140,
+          width: 130,
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: kToDoTileColor,
           ),
-          SizedBox(
-            height: 1,
-          ),
-          Flexible(
-            child: Container(
-              child: Text(
-                model.title,
-                overflow: TextOverflow.visible,
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18,
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 1,
-          ),
-          Row(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
-                Icons.brightness_1,
-                color: kDotColor,
-                size: 10,
+              Text(
+                model.catagery,
+                style: kToDotileTextStyle,
               ),
               SizedBox(
-                width: 3,
+                height: 1,
               ),
               Flexible(
                 child: Container(
                   child: Text(
-                    model.date,
-                    style: kToDotileTextStyle,
-                    overflow: TextOverflow.ellipsis,
+                    model.title,
+                    overflow: TextOverflow.visible,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                    ),
                   ),
                 ),
               ),
+              SizedBox(
+                height: 1,
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.brightness_1,
+                    color: kDotColor,
+                    size: 10,
+                  ),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Flexible(
+                    child: Container(
+                      child: Text(
+                        model.date,
+                        style: kToDotileTextStyle,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

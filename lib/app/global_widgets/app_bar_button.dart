@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AppBarButton extends StatelessWidget {
   final IconData icon;
@@ -17,11 +16,10 @@ class AppBarButton extends StatelessWidget {
       onTap: callback,
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: FaIcon(
+        child: Center(
+          child: Icon(
             icon,
             color: Colors.black87,
           ),

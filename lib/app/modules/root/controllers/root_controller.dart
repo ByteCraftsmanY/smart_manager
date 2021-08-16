@@ -35,7 +35,7 @@ class RootController extends GetxController {
   @override
   void onInit() {
     _scrollController = ScrollController();
-    _scrollController.addListener(listen);
+    // _scrollController.addListener(listen);
     super.onInit();
   }
 

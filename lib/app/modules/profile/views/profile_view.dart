@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:smart_manager/app/core/theme/appbar_theme.dart';
 
 import 'package:smart_manager/app/core/values/colors.dart';
 import 'package:smart_manager/app/modules/profile/widgets/user_profile.dart';
-import 'package:smart_manager/app/modules/root/controllers/root_controller.dart';
 
 import '../controllers/profile_controller.dart';
 
@@ -14,9 +14,24 @@ class ProfileView extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-        controller: Get.find<RootController>().getNavigationScrollController,
+        // controller: Get.find<RootController>().getNavigationScrollController,
         physics: BouncingScrollPhysics(),
         slivers: [
+          SliverAppBar(
+            title: Text(
+              "Profile",
+              style: kAppBarTextStyle,
+            ),
+            actions: [
+              Padding(
+                padding: kAppBarIconPadding.copyWith(top: 12),
+                child: Icon(
+                  Icons.logout,
+                  color: Colors.black,
+                ),
+              )
+            ],
+          ),
           SliverToBoxAdapter(
             child: UserProfile(),
           ),

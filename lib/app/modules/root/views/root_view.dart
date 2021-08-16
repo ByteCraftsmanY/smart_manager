@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:animations/animations.dart';
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-
-import 'package:smart_manager/app/core/values/colors.dart';
-import 'package:smart_manager/app/modules/root/widgets/scroll_to_hide.dart';
+import 'package:lottie/lottie.dart';
+import 'package:smart_manager/app/core/values/lotties.dart';
+import 'package:smart_manager/app/routes/app_pages.dart';
 
 import '../controllers/root_controller.dart';
 
@@ -14,52 +11,55 @@ class RootView extends GetView<RootController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() => PageTransitionSwitcher(
-            transitionBuilder: (child, primaryAnimation, secondaryAnimation) {
-              return FadeThroughTransition(
-                animation: primaryAnimation,
-                secondaryAnimation: secondaryAnimation,
-                child: child,
-              );
-            },
-            child: RootController.tabs[controller.selectedIndex.value],
-            // child: controller.tabs[controller.selectedIndex.value],
-          )),
-      bottomNavigationBar: Obx(
-        () => ScrollToHide(
-          child: Container(
-            height: kBottomNavigationBarHeight + 25,
-            color: Colors.transparent,
-            child: FloatingNavbar(
-              selectedBackgroundColor: Colors.transparent,
-              unselectedItemColor: kBottamBarIconColor2,
-              backgroundColor: kBottamBarColor,
-              selectedItemColor: kBottamBarIconColor,
-              elevation: 0,
-              borderRadius: 20,
-              padding: EdgeInsets.symmetric(vertical: 10),
-              items: [
-                FloatingNavbarItem(
-                  icon: Icons.home,
+      body: Column(
+        children: [
+          Expanded(
+            flex: 3,
+            child: LottieBuilder.asset(kToDoAnimation),
+          ),
+          Expanded(
+            flex: 2,
+            child: Column(
+              children: [
+                OutlinedButton.icon(
+                  onPressed: () {
+                    Get.toNamed(Routes.TRANSACTIONS);
+                  },
+                  icon: Icon(Icons.history),
+                  label: Text("History"),
                 ),
-                FloatingNavbarItem(
-                  icon: Icons.insert_drive_file_rounded,
+                OutlinedButton.icon(
+                  onPressed: () {
+                    Get.toNamed(Routes.HOME);
+                  },
+                  icon: Icon(Icons.home),
+                  label: Text("Home"),
                 ),
-                FloatingNavbarItem(
-                  icon: FontAwesomeIcons.solidStickyNote,
+                OutlinedButton.icon(
+                  onPressed: () {
+                    Get.toNamed(Routes.PROFILE);
+                  },
+                  icon: Icon(Icons.person),
+                  label: Text("Profile"),
                 ),
-                FloatingNavbarItem(
-                  icon: Icons.payment,
+                OutlinedButton.icon(
+                  onPressed: () {
+                    Get.toNamed(Routes.PROJECTS);
+                  },
+                  icon: Icon(Icons.task),
+                  label: Text("Projects"),
                 ),
-                FloatingNavbarItem(
-                  icon: Icons.person_sharp,
+                OutlinedButton.icon(
+                  onPressed: () {
+                    Get.toNamed(Routes.NOTES);
+                  },
+                  icon: Icon(Icons.note),
+                  label: Text("Notes"),
                 ),
               ],
-              currentIndex: controller.selectedIndex.value,
-              onTap: (v) => controller.selectedIndex.value = v,
             ),
           ),
-        ),
+        ],
       ),
     );
   }

@@ -9,7 +9,6 @@ import 'package:smart_manager/app/modules/home/widgets/progress_tile.dart';
 import 'package:smart_manager/app/modules/home/widgets/task_counter_box.dart';
 import 'package:smart_manager/app/modules/home/widgets/todo_count_row.dart';
 import 'package:smart_manager/app/modules/home/widgets/todo_list_view.dart';
-import 'package:smart_manager/app/modules/root/controllers/root_controller.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -20,7 +19,7 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       body: CustomScrollView(
         physics: BouncingScrollPhysics(),
-        controller: Get.find<RootController>().getNavigationScrollController,
+        // controller: Get.find<RootController>().getNavigationScrollController,
         slivers: [
           SliverAppBar(
             floating: true,
